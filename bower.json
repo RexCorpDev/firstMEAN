@@ -6,7 +6,7 @@
     "RexCorpDev <rexcorpfx@gmail.com>"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/RexCorpDev/hello-world",
+  "homepage": "https://github.com/RexCorpDev/firstMEAN",
   "ignore": [
     "**/.*",
     "node_modules",
