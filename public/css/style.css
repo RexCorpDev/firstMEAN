@@ -1,0 +1,44 @@
+jumbotron {
+  margin-top: 100%;
+  margin-bottom: 100%;
+}
+
+a {
+  color: #454545;
+}
+
+button.flip {
+  background-color: #42aa6c;
+  border-color: #0be9ff;
+  font-weight: 400;
+  color: #ffffff;
+  padding: 15px 50px;
+  font-size: 40px;
+  -webkit-border-radius: 3%;
+  -moz-border-radius: 3%;
+  border-radius: 5%;
+}
+
+button.next {
+  background-color: #427baa;
+  border-color: #0be9ff;
+  font-weight: 400;
+  color: #ffffff;
+  padding: 15px 50px;
+  font-size: 40px;
+  -webkit-border-radius: 3%;
+  -moz-border-radius: 3%;
+  border-radius: 5%;
+}
+
+button.create {
+  background-color: #3c8f49;
+  border-color: #80ff00;
+  font-weight: 400;#61ff00
+  color: #ffffff;
+  padding: 5px 15px;
+  font-size: 25px;
+  -webkit-border-radius: 3%;
+  -moz-border-radius: 3%;
+  border-radius: 5%;
+}

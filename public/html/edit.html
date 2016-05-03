@@ -1,0 +1,91 @@
+<!-- TEMPLATES -->
+<div class="template-header text-center">
+  <i class="fa fa-gear fa-spin fa-5x fa-fw margin-bottom"></i>
+  <br>
+  <h1 class="text-center">Edit</h1>
+  <div class="container text-center">
+    <label class="col-lg-6 text-center">
+      Search:
+      <input ng-model='searchFilter' type="text" class="form-control">
+    </label>
+    <label class="col-lg-6 text-center">
+      Sort By:
+      <input ng-model='sortOrder' type="text" class="form-control">
+    </label>
+  </div>
+
+  <table class="table table-striped">
+    <tbody>
+      <tr >
+        <td class="col-xs-1">
+          <p ng-click='sortBy("index")'><b> # </b></p>
+        </td>
+        <td class="col-xs-2">
+          <p ng-click='sortBy("category")'><b> Category </b></p>
+        </td>
+        <td class="col-xs-2">
+          <p ng-click='sortBy("question")'><b> Question </b> </p>
+        </td>
+        <td class="col-xs-2">
+          <p ng-click='sortBy("answer")'> <b> Answer </b></p>
+        </td>
+        <td class="text-center col-xs-2">
+          <p ng-click='sortBy("difficulty")'><b>  Difficulty </b></p>
+        </td>
+        <td class="text-center col-xs-2">
+          <p ng-click='sortBy("edit-delete")'><b> Edit  | Delete </b></p>
+        </td>
+      </tr>
+      <tr ng-repeat='card in cards  | filter:searchFilter | orderBy:sortOrder track by $index'>
+        <td class="col-xs-1">
+          <p> {{ $index + 1}} </p>
+        </td>
+        <td class="col-xs-2">
+          <p>  {{ card.category }} </p>
+        </td>
+        <td class="col-xs-2">
+          <p>  {{ card.question }}</p>
+        </td>
+        <td class="col-xs-2">
+          <p>  {{ card.answer}}</p>
+        </td>
+        <td class="col-xs-2">
+          <p>  {{ card.difficulty}}</p>
+        </td>
+        <td class="text-center col-xs-2">
+          <button type="button" class="btn btn-primary" ng-click="editCard(card)" ng-toggle="isCollapsed = !isCollapsed">   <i class="fa fa-edit fa-2x fa-fw margin-bottom"></i> </button> &nbsp  <button type="button" class="btn btn-danger" ng-click="deleteCard(card._id)">   <i class="fa fa-trash-o fa-2x fa-fw margin-bottom"></i> </button>
+        </td>
+      </tr>
+      <tr>
+        <hr>
+        <div uib-collapse="isCollapsed" class="text-center">
+          <div >
+            <div class="col-xs-2">
+                <input type="text" class="form-control" ng-model="editCategory">
+            </div>
+            <div class="col-xs-6">
+                <input type="text" style="font-size: 12px" class="form-control"  ng-model="editQuestion">
+            </div>
+            <div class="col-xs-2">
+                <input type="text" class="form-control"  ng-model="editAnswer">
+            </div>
+            <div class="col-xs-2">
+                <input type="text" class="form-control"  ng-model="editDifficulty">
+            </div>
+          </div>
+          <br>
+          <br>
+          <div>
+            <button type="button" class="btn btn-success" ng-click="isCollapsed = !isCollapsed; submitEdit()">Submit Changes</button>
+            &nbsp <button type="button" class="btn btn-danger" ng-click="isCollapsed = !isCollapsed; cancelChanges()">Cancel Changes</button>
+          </div>
+
+        </div>
+      </tr>
+    </tr>
+  </tbody>
+  <tfoot>
+    <hr>
+  </tfoot>
+</table>
+</div>
