@@ -10,8 +10,8 @@ var router = express.Router();
 var app = express();
 var mongoose = require('mongoose');
 
- //const MONGOURL = 'mongodb://localhost/01mar16_expressMongo';
-const MONGOURL = process.env.MONGODB_URI || 'mongodb://localhost/01mar16_expressMongo';
+const MONGOURL = 'mongodb://localhost/01mar16_expressMongo';
+//const MONGOURL = process.env.MONGODB_URI || 'mongodb://localhost/01mar16_expressMongo';
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());

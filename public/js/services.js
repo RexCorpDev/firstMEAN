@@ -32,7 +32,7 @@ app.service('Card', function($http, $q){
 
     console.log("Edit this:\n",editedCard);
 
-    return $http.put(`/api/cards/${editedCard._id}`);
+    return $http.put(`/api/cards/${editedCard._id}`, editedCard);
   }
 
 

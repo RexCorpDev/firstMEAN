@@ -111,7 +111,7 @@ app.controller('addCtrl', function($scope, Card, $state){
       question    :   $scope.question,
       answer      :   $scope.answer,
     };
-    console.log(newCard);
+    console.log("controllerNewCard",newCard);
     Card.create(newCard);
     $scope.difficulty.selected = "";
     $scope.category.selected = "";
@@ -198,13 +198,12 @@ app.controller('editCtrl', function ($scope, Card, $state) {
       console.log("new Card", editedCard);
 
       Card.edit(editedCard);
-
-
-
       Card.getCards()
-      .then(freshCards => {
-        $scope.cards = freshCards.data;
-      })
+      .then(newCards => {
+        console.log("here are the edited cards\n",newCards);
+        $scope.cards = newCards.data;
+      });
+
 
       $scope.editCategory = "";
       $scope.editQuestion = "";

@@ -50,21 +50,21 @@ router.delete('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  var card = new Card(req.body);
-
-  Card.save((err, savedCard) => {
+  console.log('sendThisCard\n',req.body);
+  // var card = new Card(req.body);
+  Card.create(req.body, (err, savedCard)=>{
+  // card.save((err, savedCard) => {
     if(err){
       res.status(404).send(err);
     } else {
       console.log("Saved the Card!");
       res.send(savedCard);
     }
-  })
-
+  });
 });
 
 router.put('/:id', (req, res) => {
-  console.log('do you see this?');
+  console.log('reqBody =>\n', req.body);
   Card.findByIdAndUpdate(req.params.id, { $set: req.body }, {new: true}, (err, card) => {
     if(err){
       res.status(400).send(err);

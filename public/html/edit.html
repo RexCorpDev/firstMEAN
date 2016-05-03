@@ -36,7 +36,7 @@
           <p ng-click='sortBy("edit-delete")'><b> Edit  | Delete </b></p>
         </td>
       </tr>
-      <tr ng-repeat='card in cards  | filter:searchFilter | orderBy:sortOrder track by $index'>
+      <tr ng-repeat='card in cards | filter:searchFilter | orderBy:sortOrder track by $index'>
         <td class="col-xs-1">
           <p> {{ $index + 1}} </p>
         </td>
