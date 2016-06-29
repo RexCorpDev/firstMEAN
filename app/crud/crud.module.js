@@ -1,26 +1,26 @@
 'use strict';
 
-angular.module('flashCardApp.crudModule')
+angular.module('fslashcardApp', []);
 .config(function($stateProvider, $urlRouterProvider){
   $stateProvider
   .state('category', {
     url           : '/category' ,
-    templateUrl   : 'html/category.html' ,
+    templateUrl   : '/crud/category.html' ,
     controller    : 'categoryCtrl'
   })
   .state('browseCategory', {
     url           : '/browse' ,
-    templateUrl   : 'html/browseCategory.html' ,
+    templateUrl   : '/crud/browseCategory.html' ,
     controller    : 'browseCategoryCtrl'
   });
   .state('add', {
     url           : '/add' ,
-    templateUrl   : 'html/add.html' ,
+    templateUrl   : '/crud/add.html' ,
     controller    : 'addCtrl'
   })
   .state('edit', {
     url           : '/edit' ,
-    templateUrl   : 'html/edit.html' ,
+    templateUrl   : '/crud/edit.html' ,
     controller    : 'editCtrl'
   })
   $urlRouterProvider.otherwise('/');

@@ -5,31 +5,31 @@ angular.module('flashCardApp.studyModule')
   $stateProvider
   .state('movies', {
     url           : '/study/movies' ,
-    templateUrl   : 'html/study.movies.html' ,
+    templateUrl   : '/study/study.movies.html' ,
     controller    : 'moviesController',
     controllerAs  : 'moviesCtrl'
   })
   .state('music', {
     url           : '/study/music' ,
-    templateUrl   : 'html/study.music.html' ,
+    templateUrl   : '/study/study.music.html' ,
     controller    : 'musicController',
     controllerAs  : 'musicCtrl'
   });
   .state('numbers', {
     url           : '/study/numbers' ,
-    templateUrl   : 'html/study.numbers.html' ,
+    templateUrl   : '/study/study.numbers.html' ,
     controller    : 'numbersController',
     controllerAs  : 'numbersCtrl'
   })
   .state('random', {
     url           : '/study/random' ,
-    templateUrl   : 'html/study.random.html' ,
+    templateUrl   : '/study/study.random.html' ,
     controller    : 'randomController',
     controllerAs  : 'randomCtrl'
   })
   .state('custom', {
     url           : '/study/custom' ,
-    templateUrl   : 'html/study.custom.html' ,
+    templateUrl   : '/study/study.custom.html' ,
     controller    : 'customController',
     controllerAs  : 'custom'
   })
