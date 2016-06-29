@@ -9,27 +9,26 @@ app.config(function($stateProvider, $urlRouterProvider){
   .state('home', {
     url           : '/' ,
     templateUrl   : 'html/home.html' ,
-    controller    : 'homeCtrl'
+    controller    : 'homeController'
   })
   .state('category', {
     url           : '/category' ,
     templateUrl   : 'html/category.html' ,
     controller    : 'categoryCtrl'
   })
-  .state('studyCategory', {
-    url           : '/studyCategory' ,
-    templateUrl   : 'html/studyCategory.html' ,
-    controller    : 'studyCategoryCtrl'
+  .state('study', {
+    url           : '/study' ,
+    templateUrl   : 'html/study.html'
   })
-  .state('studyMovies', {
-    url           : '/studyMovies' ,
-    templateUrl   : 'html/studyMovies.html' ,
-    controller    : 'studyMoviesCtrl'
+  .state('movies', {
+    url           : '/study/movies/splash',
+    templateUrl   : 'html/movies.html',
+    controller    : 'moviesController'
   })
-  .state('movieStudy', {
-    url           : '/movieStudy' ,
-    templateUrl   : 'html/movieStudy.html' ,
-    controller    : 'movieStudyCtrl'
+  .state('study-movies', {
+    url           : '/study/movies',
+    templateUrl   : 'html/study-movies.html',
+    controller    : 'moviesController'
   })
   .state('add', {
     url           : '/add' ,
@@ -42,7 +41,7 @@ app.config(function($stateProvider, $urlRouterProvider){
     controller    : 'editCtrl'
   })
   .state('browseCategory', {
-    url           : '/browseCategory' ,
+    url           : '/browse' ,
     templateUrl   : 'html/browseCategory.html' ,
     controller    : 'browseCategoryCtrl'
   })

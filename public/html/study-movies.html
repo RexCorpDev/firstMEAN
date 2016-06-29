@@ -1,0 +1,25 @@
+
+<div class="text-center template-header">
+
+  <i class=" fa fa-film fa-5x fa-fw margin-bottom"></i>
+  <br>
+  <hr>
+  <div class="row ">
+    <h2 ng-model='question' class="text-center col-xs-6 col-xs-offset-3 well">
+      {{ field }}
+    </h2>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12" ng-hide='answer'>
+      <button class="btn btn-primary flip" ng-click="flipCard()">
+        FLIP
+      </button>
+    </div>
+    <div class="col-xs-12" ng-show='answer'>
+      <button class="btn btn-primary next" ng-click="nextCard()">
+        NEXT
+      </button>
+    </div>
+  </div>
+</div>

@@ -2,46 +2,56 @@
 
 var app = angular.module('flashCard');
 
-app.controller('homeCtrl', function(){
-  console.log("homeCtrl");
-})
-
-app.controller('add', function(){
-  console.log('addCtrl');
-})
-
-app.controller('categoryCtrl', function($scope){
-  console.log('categoryCtrl');
-
-
-
-})
-
-app.controller('studyCategoryCtrl', function(){
-  console.log('studyCtrl');
-
-  //$scope.<ARRAY> = [];
-})
-
-app.controller('studyMoviesCtrl', function($scope, $state, Category){
-  console.log('studyMoviesCtrl');
-  var movieCards = [];
-
-  Card.getCardsByCategory()
-  .then(dbCards => {
-    console.log(dbCards);
-    movieCards = dbCards;
-  });
-
-  console.log(movieCards);
-
-  // Generate NEW card
-  function NewCard(){
-    var randNum = Math.floor(Math.rand() * cards.length);
-    return cards[randNum];
+app.controller('homeController', function($scope, Card){
+  function getCards(){
+    let movieCards = [],
+    musicCards = [],
+    numberCards = [],
+    dbCards = {
+      all : []
+    };
+    Card.getCards()
+    .then(res => {
+      res.data.forEach(card => {
+        dbCards.all.push(card);
+        card.category === 'Music' ? musicCards.push(card) :
+        card.category === 'Movie' ? movieCards.push(card) :
+        card.category === 'Number' ? numberCards.push(card) : null;
+      });
+      dbCards.movieCards = movieCards,
+      dbCards.musicCards = musicCards,
+      dbCards.numberCards = numberCards;
+      Card.setFeCards(dbCards);
+      console.log(Card.getFeCards());
+    })
+    .catch(() => $scope.cards = "you suck try again.");
   };
 
-  //$scope.<ARRAY> = [];
+  getCards();
+
+  $scope.$on('renderCards', function(){getCards()});
+});
+
+app.controller('moviesController', function($scope, Card){ console.log('moviesController');
+  $scope.answer = false;
+  let movieCards = Card.getFeCards().movieCards;
+  let thisCard = {};
+  let generateCard = () => {
+    let newCard = () => movieCards[Math.floor(Math.random()*movieCards.length)];
+    thisCard = newCard();
+    $scope.field = thisCard.question;
+  };
+  generateCard();
+
+  $scope.flipCard = () => {
+    $scope.answer = true;
+    $scope.field = thisCard.answer;
+  };
+
+  $scope.nextCard = () => {
+    $scope.answer = false;
+    generateCard();
+  };
 });
 
 app.controller('movieStudyCtrl', function($scope, $state, Card, SweetAlert){
@@ -161,7 +171,7 @@ app.controller('editCtrl', function ($scope, Card, $state) {
   $scope.isCollapsed = true;
 
   Card.getCards()
-    .then(dbCards => {
+  .then(dbCards => {
     //console.log("getCards\n",dbCards);
     $scope.cards = dbCards.data;
   });
@@ -227,7 +237,6 @@ app.controller('editCtrl', function ($scope, Card, $state) {
   };
 
 });
-
 
 angular.module('ui.bootstrap').controller('PopoverDemoCtrl', function ($scope, $sce) {
   $scope.dynamicPopover = {
