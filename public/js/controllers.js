@@ -158,11 +158,10 @@ app.controller('browseCategoryCtrl', function ($scope, Card, $state) {
 
 app.controller('editCtrl', function ($scope, Card, $state) {
   //console.log("editController");
-
   $scope.isCollapsed = true;
 
   Card.getCards()
-  .then(dbCards => {
+    .then(dbCards => {
     //console.log("getCards\n",dbCards);
     $scope.cards = dbCards.data;
   });
@@ -211,8 +210,6 @@ app.controller('editCtrl', function ($scope, Card, $state) {
       $scope.editDifficulty = "";
     }
   }
-
-
 
   $scope.cancelChanges = () => {
     $scope.editCategory = "";

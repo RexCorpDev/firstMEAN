@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose');
 
-var Card = mongoose.model('Card', {
+let cardSchema = new mongoose.Schema({
   difficulty  :   String,
   category    :   String,
   question    :   String,
@@ -13,7 +13,9 @@ var Card = mongoose.model('Card', {
   choice4     :   String,
   totalstudy  :   Number,
   invalidCount :  Number
-});
+})
 
+
+let Card = mongoose.model('Card', cardSchema);
 
 module.exports = Card;
