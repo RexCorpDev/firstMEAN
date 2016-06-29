@@ -1,16 +1,13 @@
 'use strict';
 
-var app = angular.module('flashCard', [ 'ui.router', 'ui.bootstrap', 'oitozero.ngSweetAlert' ]);
-
-app.config(function($stateProvider, $urlRouterProvider){
-
-
+angular.module('flashCard.crudModule');
+.config(function($stateProvider, $urlRouterProvider){
   $stateProvider
-  .state('home', {
-    url           : '/' ,
-    templateUrl   : 'html/home.html' ,
-    controller    : 'homeController'
-  })
+  // .state('home', {
+  //   url           : '/' ,
+  //   templateUrl   : 'html/home.html' ,
+  //   controller    : 'homeController'
+  // })
   .state('category', {
     url           : '/category' ,
     templateUrl   : 'html/category.html' ,
