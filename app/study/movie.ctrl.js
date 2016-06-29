@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('flashCardApp.studyModule')
-.controller('moviesController', function($scope, Card){ console.log('movieCtrl');
+.controller('moviesController', function($scope, Study){ console.log('movieCtrl');
   $scope.answer = false;
-  let movieCards = Card.getFeCards().movieCards;
+  let movieStudys = Study.getFeCards().movieCards;
   let thisCard = {};
   let generateCard = () => {
     let newCard = () => movieCards[Math.floor(Math.random()*movieCards.length)];
