@@ -2,8 +2,7 @@
 
 angular.module('flashCardApp.studyModule')
 .service('Study', function($http){
-
-  this.getCards = () => $http.get('/api/cards/crud');
+  this.getCards     = ()    => $http.get    ('/api/cards/crud');
 
   this.feCards = {};
   this.setFeCards = dbCards => {
